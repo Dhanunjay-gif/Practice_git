@@ -13,13 +13,19 @@
     list-style-type: none;
     padding: 0px 20px;
     font-size: 20px;
+    gap:20px;
 }
 
-.nav-items>ul>li{
-    cursor:pointer;
-    padding:10px;
-    margin:10px;
+.nav-items ul li {
+    display: inline-block; /* Ensures the items stay inline */
+    margin:20px 0px 0px 0px;
 }
+
+
+.nav-items ul li:hover {
+    color: blue;
+}
+
 
 .nav-items>ul>li:hover{
     border:1px solid black
@@ -53,15 +59,98 @@
 }
 
 .filter-btn{
-    margin:10px;
+    width:150px;
+    height:23px;
+    margin:20px 0px 0px 10px;
     cursor:pointer;
 }
 
 .filter{
     display: flex;
-    justify-content: flex-end; /* Pushes content to the right*/
+    /* justify-content: flex-end; Pushes content to the right */
 }
 
-.filter-btn{
-    color:blue;
+.shammer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shammer-card{
+    margin:47px 5px 0px 5px;
+    width: 220px;
+    height:340px;
+    padding:5px;
+    background-color:lightgray;
+}
+
+.login{
+    width: 60px;  /* Set width */
+    height: 60px; /* Set height (same as width for a circle) */
+    border-radius: 50%; /* Makes it a circle */
+    background-color: #3498db; /* Button color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    font-size: 15px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+}
+.input-text{
+    width:200px;
+    height:20px;
+    margin:10px;
+}
+
+.filter-search{
+    display:flex;
+}
+
+.search-btn{
+    cursor: pointer;
+}
+.thanks-msg{
+    text-align: center;
+}
+
+.error{
+    display:;
+}
+
+/* Center the error div in the middle of the page */
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Takes full viewport height */
+}
+
+/* Styling for the 404 inside a circle */
+.servererror {
+    font-size: 60px;
+    font-weight: bold;
+    background-color: red; /* Change color as needed */
+    color: white;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Makes it a circle */
+    margin: 20px 0; /* Adds spacing */
+}
+
+/* Additional text styling */
+h1 {
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.pageerrormsg {
+    font-size: 18px;
+    color: gray;
 }
