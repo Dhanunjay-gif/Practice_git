@@ -11,10 +11,10 @@ const Header = () =>{
                 <img className="logo" src={LOGO_URL}/>
             </div>
             <div className="nav-items">
-                <ul>
-                    <Link to="/"><li>Home</li></Link>
-                    <Link to="/About"><li>About Us</li></Link>
-                    <Link to="/Contact"><li>Contact Us</li></Link>
+                <ul className="listofheader">
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/About">About</Link></li>
+                    <li><Link to="/Contact">Contact</Link></li>
                     <li className="cart">Cart</li>
                     <button type="button" className='login' onClick={()=>btnNameReact==="Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login")}>{btnNameReact}</button>
                 </ul>

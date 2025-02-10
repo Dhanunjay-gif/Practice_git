@@ -47,8 +47,8 @@ const RestaurantMenu = () => {
 
     return (
         <div className="menu">
-            <h3>{resName}</h3>
-            <h3>{cuisines.join(",")} - {costForTwoMessage}</h3>
+            <h2 className="restaurantname-text">{resName}</h2>
+            {/* <h3>{cuisines.join(",")} - {costForTwoMessage}</h3> */}
             <h3>Menu</h3>
             <ul className="menu-container">
             <h3 className="recommended-items">Recommended ({itemCards.length})</h3>

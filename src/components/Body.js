@@ -41,6 +41,9 @@ const Body = () =>{
                     setlistOfRes(filterdList);
                 }}>Top Restaurants</button>
             </div>
+            <div className='listofRestaurants-count'>
+                <h3>Restaurants :{listOfRes.length}</h3>
+            </div>
         </div>
             <div className="res-container">
                 {
