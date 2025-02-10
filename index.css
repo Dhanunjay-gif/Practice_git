@@ -38,6 +38,11 @@
     background-color:lightgray;
 }
 
+.restaurant-cards-link{
+    text-decoration: none;
+    color: inherit; /* Optional: keeps default text color */
+}
+
 .res-card:hover{
     cursor:pointer;
     border:1px solid black;
@@ -203,7 +208,7 @@ h1 {
 }
 
 /* Right Section: Image & Counter */
-.res-logo {
+.res-logo-items {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -284,6 +289,12 @@ h1 {
     background-color: white;
     cursor: pointer;
   }
+
+.recommended-items{
+    margin: 0px 0px 0px 170px;
+    font-family: Gilroy;
+    font-weight: 800px;
+}
 
 
 

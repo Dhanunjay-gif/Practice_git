@@ -1,7 +1,9 @@
 import RestaurantCard from "./RestaurantCard";
 // import resList from "../utils/mockData";
 import Shammer from "./Shammer"
+import {RESTAURANT_URL} from "../utils/constants";
 import {useState, useEffect} from 'react';
+import {Link} from "react-router";
 
 const Body = () =>{
     // const [list,setList]= useState(resList.restaurant);
@@ -12,8 +14,8 @@ const Body = () =>{
         fetchData();
     }, []);
     const fetchData = async () =>{
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=15.7475282&lng=78.0009992&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-        const json = await data.json();
+        const data = await fetch(RESTAURANT_URL);
+        const json = await data?.json();
         const dataOfRes=json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants.map(res=>res.info)
         setlistOfRes(dataOfRes);
         setListFilterRes(dataOfRes);
@@ -42,7 +44,7 @@ const Body = () =>{
         </div>
             <div className="res-container">
                 {
-                    listOfRes.map((restaurant,index)=><RestaurantCard key={restaurant.id} resData={restaurant}/>)
+                    listOfRes.map((restaurant,index)=> (<Link to={"/restaurants/"+restaurant.id} key={restaurant.id} className="restaurant-cards-link"><RestaurantCard resData={restaurant}/></Link>))
                 }
             </div>
         </div>
