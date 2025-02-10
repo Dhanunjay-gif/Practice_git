@@ -19,9 +19,9 @@ const Body = () =>{
         setListFilterRes(dataOfRes);
     }
 
-    // if(searchText.length===0){
-    //     return <Shammer/>
-    // }
+    if(listOfRes.length===0){
+        return <Shammer/>
+    }
 
     return listOfRes.length===0 ? <Shammer/> : (
         <div className="body">

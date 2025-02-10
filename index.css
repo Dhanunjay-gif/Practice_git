@@ -117,7 +117,7 @@
 }
 
 .error{
-    display:;
+    display:flex;
 }
 
 /* Center the error div in the middle of the page */
@@ -154,3 +154,137 @@ h1 {
     font-size: 18px;
     color: gray;
 }
+
+.menu-container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: space-between;  /* Pushes left and right sections apart */
+    align-items: center;  /* Aligns everything vertically */
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    margin:10px 150px 0px 160px;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+/* Left Section: Name, Price, Rating, Description */
+.menu-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;  /* Adds spacing between elements */
+    width: 60%;  /* Adjust width for better balance */
+}
+
+.item-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 16px;
+    color: #e63946;  /* Reddish shade for price */
+}
+
+.rating-star {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.res-container-description {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Right Section: Image & Counter */
+.res-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+
+.resinfo-logo {
+    width: 180px; /* Adjust image size */
+    height: auto;
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 10px;
+}
+
+/* Increment Counter Styling */
+.add-items {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.menu-items-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.price{
+    margin:0px;
+    font-weight:bold;
+    font-size: 17px;
+}
+
+.res-container-description{
+    color:lightslategray;
+    font-size: 16px;
+}
+
+.rating-count{
+    color:lightslategray;
+}
+
+.decrease-btn, .increment-btn{
+    cursor: pointer;
+}
+
+.add-btn-initial{
+    cursor: pointer;
+}
+
+.add-btn-initial {
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: white;
+    color: #fc8019; 
+    border: 1.5px solid #fc8019;
+    border-radius: 20px; /* Rounded edges */
+    cursor: pointer;
+    width: 80px;
+    height: 40px;
+  }
+
+.inc-dec {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: white;
+    padding: 8px 14px;
+    border-radius: 20px; /* Rounded edges */
+    border: 1.5px solid #fc8019;
+  }
+
+.decrease-btn, .increment-btn {
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+  }
+
+
+
+
