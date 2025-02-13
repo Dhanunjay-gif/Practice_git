@@ -4,26 +4,14 @@ import Increment from "./Increment";
 import {useParams} from "react-router";
 import {RESINFO_URL} from "../utils/constants";
 import {MENU_URL} from "../utils/constants"
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-    const [resInfo, setResInfo] = useState(null);
     const [counts, setCounts] = useState({}); 
 
     const {resId} = useParams();
 
-    useEffect(() => {
-        fetchMenu();
-    }, []);
-
-    const fetchMenu = async () => {
-        try {                                                                
-            const data = await fetch(MENU_URL+resId); // Hotel C-camp -183321
-            const json = await data.json();
-            setResInfo(json?.data);
-        } catch (error) {
-            console.error("Error fetching menu:", error);
-        }
-    };
+    const resInfo = useRestaurantMenu(resId);
 
     if (resInfo === null) {
         return <Shammer />;
@@ -72,7 +60,7 @@ const RestaurantMenu = () => {
                                 </div>
                             </div>
                             <div className="res-logo-items">
-                                <img className="resinfo-logo" src={RESINFO_URL + imageId} alt="Restaurant Logo" />
+                                <img className="resinfo-logo" src={RESINFO_URL +imageId} alt="Restaurant Logo" />
                                 <div className="add-items">
                                     <Increment count={count} setCount={(newCount) => handleCountChange(id, newCount)} />
                                 </div>

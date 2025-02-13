@@ -4,21 +4,30 @@ import Shammer from "./Shammer"
 import {RESTAURANT_URL} from "../utils/constants";
 import {useState, useEffect} from 'react';
 import {Link} from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () =>{
     // const [list,setList]= useState(resList.restaurant);
     const [listOfRes,setlistOfRes]= useState([]);
     const [searchText,setSearchText]= useState("");
-    const [listFilterRes,setListFilterRes]= useState("");
+    const [listFilterRes,setListFilterRes]= useState([]);
+
+
     useEffect(() => {
         fetchData();
     }, []);
+
     const fetchData = async () =>{
         const data = await fetch(RESTAURANT_URL);
         const json = await data?.json();
         const dataOfRes=json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants.map(res=>res.info)
         setlistOfRes(dataOfRes);
         setListFilterRes(dataOfRes);
+    }
+
+    const onlineStatus = useOnlineStatus();
+    if (!onlineStatus) {
+        return <h1>Looks like you're offline! Please check your internet connection.</h1>;
     }
 
     if(listOfRes.length===0){
