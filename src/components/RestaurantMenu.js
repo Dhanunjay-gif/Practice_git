@@ -16,8 +16,8 @@ const RestaurantMenu = () => {
 
     const { name: resName, cuisines, costForTwoMessage } = resInfo?.cards[2]?.card?.card?.info;
     const ListOfCards =resInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards;
-    const { itemCards } = resInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;
-    const category = ListOfCards.filter(c=>c.card.card["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+    // const { itemCards } = resInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;
+    const category = ListOfCards.filter(c=>c.card.card["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
 
     // Function to update count for a specific item
     const handleCountChange = (id, newCount) => {
@@ -41,17 +41,13 @@ const RestaurantMenu = () => {
                        {
                         category.map(res=>{
                             return (
+                                <>
                                 <h3 id="recommended-items" className="font-bold text-lg m-10 text-left">
                                     {res.card.card.title} ({res.card.card.itemCards.length})
                                 </h3>
-                            )
-                        })
-                       }
-
-                {itemCards.map((res) => {
+                    {res.card.card.itemCards.map((res) => {
                     const { name: itemName, price, description, imageId, ratings, id } = res.card.info;
                     const count = counts[id] || 0;
-
                     return (
                         <li key={id} className="menu-items container m-10 flex justify-between items-center border-b pb-4">
                             {/* Left Content: Item Name, Price, Rating, Description */}
@@ -94,6 +90,12 @@ const RestaurantMenu = () => {
                         </li>
                     );
                 })}
+                                </>
+                            )
+                        })
+                       }
+
+                
             </ul>
         </div>
     );
