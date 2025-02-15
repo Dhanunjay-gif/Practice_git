@@ -1,10 +1,11 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
 // import resList from "../utils/mockData";
 import Shammer from "./Shammer"
 import {RESTAURANT_URL} from "../utils/constants";
 import {useState, useEffect} from 'react';
 import {Link} from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import {parentData_Id} from "../utils/mockData";
 
 const Body = () =>{
     // const [list,setList]= useState(resList.restaurant);
@@ -12,6 +13,7 @@ const Body = () =>{
     const [searchText,setSearchText]= useState("");
     const [listFilterRes,setListFilterRes]= useState([]);
 
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
     useEffect(() => {
         fetchData();
@@ -24,7 +26,7 @@ const Body = () =>{
         setlistOfRes(dataOfRes);
         setListFilterRes(dataOfRes);
     }
-
+    console.log(listFilterRes)
     const onlineStatus = useOnlineStatus();
     if (!onlineStatus) {
         return <h1>Looks like you're offline! Please check your internet connection.</h1>;
@@ -35,28 +37,28 @@ const Body = () =>{
     }
 
     return listOfRes.length===0 ? <Shammer/> : (
-        <div className="body">
+        <div id="body" className="body">
             <div className="filter-search">
-            <div className="search">
-                <input type="text" className="input-text" value={searchText} onChange={(e)=>setSearchText(e.target.value)}/>
-                <button  className="search-btn" onClick={()=>{
+            <div className="search flex items-center space-x-4 m-4">
+                <input type="text" placeholder="search" className="input-text border-2 ml-2" value={searchText} onChange={(e)=>setSearchText(e.target.value)}/>
+                <button  className="search-btn bg-gray-300 text-black border-1 w-25 cursor-pointer hover:bg-gray-200" onClick={()=>{
                    const filterRes=listFilterRes.filter(res=>res.name.toLowerCase().includes(searchText.toLocaleLowerCase()));
                    setlistOfRes(filterRes)
                 }}>Search</button>
-            </div>
-            <div className="filter">
-                <button className="filter-btn" onClick={()=>{
-                    const filterdList=listOfRes.filter(res=>res.avgRating<=4.1);
+                <button type="button" id="filter-btn" className="bg-gray-300 text-black border-1 w-37 cursor-pointer hover:bg-gray-200" onClick={()=>{
+                    const filterdList=listOfRes.filter(res=>res.avgRating>=4);
                     setlistOfRes(filterdList);
                 }}>Top Restaurants</button>
             </div>
-            <div className='listofRestaurants-count'>
-                <h3>Restaurants :{listOfRes.length}</h3>
+            <div className="listofRestaurants-count text-right w-full pr-4">
+                <h3 className="text-lg font-semibold">Restaurants: {listOfRes.length}</h3>
             </div>
         </div>
-            <div className="res-container">
+            <div id="res-container" className="grid grid-cols-6 gap-4 p-2">
                 {
-                    listOfRes.map((restaurant,index)=> (<Link to={"/restaurants/"+restaurant.id} key={restaurant.id} className="restaurant-cards-link"><RestaurantCard resData={restaurant}/></Link>))
+                    listOfRes.map((restaurant,index)=> (<Link to={"/restaurants/"+restaurant.id} key={restaurant.id} className="restaurant-cards-link">
+                        {parentData_Id.includes(restaurant.parentId) ? (<RestaurantCardPromoted resData={restaurant}/>) : (<RestaurantCard resData={restaurant}/>)}
+                        </Link>))
                 }
             </div>
         </div>

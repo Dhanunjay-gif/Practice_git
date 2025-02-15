@@ -11,6 +11,7 @@ import Error from "./components/Error.js";
 import RestaurantMenu from "./components/RestaurantMenu.js";
 import Increment from "./components/Increment.js";
 // import Grocery from "./components/Grocery.js";
+import Shammer from "./components/Shammer.js";
 
 const AppLayout= () =>{
     return(
@@ -69,3 +70,5 @@ const AppRouter = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={AppRouter}/>);
+
+// root.render(<Shammer/>);

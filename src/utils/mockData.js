@@ -19,3 +19,5 @@ const resList = {
 };
 
 export default resList;
+
+export const parentData_Id = ["28234", "3481", "353020", "128546"];
