@@ -17,6 +17,7 @@ const RestaurantMenu = () => {
     const { name: resName, cuisines, costForTwoMessage } = resInfo?.cards[2]?.card?.card?.info;
     const ListOfCards =resInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards;
     const { itemCards } = resInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;
+    const category = ListOfCards.filter(c=>c.card.card["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
 
     // Function to update count for a specific item
     const handleCountChange = (id, newCount) => {
@@ -36,19 +37,16 @@ const RestaurantMenu = () => {
 
             <ul className="m-10">
                 {/* <h3 className="m-4 font-bold text-xl text-left">Menu</h3> */}
-                {
-                    
-                    ListOfCards.slice(2,21).map((res,index)=>{
-                        if(index==3) return null;
-                        const cards1 = res.card.card;
-                        const countOfItems = cards1.itemCards
-                        return ( 
-                            <h3 id="recommended-items" className="font-bold text-lg m-10 text-left">
-                                {cards1.title} ({cards1.itemCards.length})
-                            </h3>
-                        )
-                    })
-                }
+                
+                       {
+                        category.map(res=>{
+                            return (
+                                <h3 id="recommended-items" className="font-bold text-lg m-10 text-left">
+                                    {res.card.card.title} ({res.card.card.itemCards.length})
+                                </h3>
+                            )
+                        })
+                       }
 
                 {itemCards.map((res) => {
                     const { name: itemName, price, description, imageId, ratings, id } = res.card.info;
