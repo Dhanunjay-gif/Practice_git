@@ -13,16 +13,20 @@ import Increment from "./components/Increment.js";
 // import Grocery from "./components/Grocery.js";
 import Shammer from "./components/Shammer.js";
 import { LoginContext } from "./components/UserContext.js"
+import { Provider } from "react-redux";
+import appStore from "./reduxStore/appStore.js"
 
 const AppLayout= () =>{
   const [userName,setUserName] = useState("")
     return(
+      <Provider store={appStore}>
         <LoginContext.Provider value={{userName,setUserName}}>
         <div className="app">
         <Header/>
         <Outlet/>
         </div>
         </LoginContext.Provider>
+      </Provider>
     )
 }
 
