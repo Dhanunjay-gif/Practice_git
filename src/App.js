@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useState} from "react";
 import ReactDOM from "react-dom/client";  // react-dom/client
 import Header from "./components/Header.js";
 import Body from "./components/Body.js";
@@ -12,13 +12,17 @@ import RestaurantMenu from "./components/RestaurantMenu.js";
 import Increment from "./components/Increment.js";
 // import Grocery from "./components/Grocery.js";
 import Shammer from "./components/Shammer.js";
+import { LoginContext } from "./components/UserContext.js"
 
 const AppLayout= () =>{
+  const [userName,setUserName] = useState("")
     return(
+        <LoginContext.Provider value={{userName,setUserName}}>
         <div className="app">
         <Header/>
         <Outlet/>
         </div>
+        </LoginContext.Provider>
     )
 }
 

@@ -14,7 +14,7 @@ const Restaurantcategory = ({data}) =>{
                 <span id="recommended-items" className="font-bold text-lg">
                     {data.title} ({data.itemCards.length})
                 </span>
-                  { showItems ? <span>🔼</span> : <span>🔽</span> }
+                  { showItems ? <span>⬆️</span> : <span>⬇️</span> }
             </div>
             <div>{
                 showItems && <ItemList items={data.itemCards}/>
