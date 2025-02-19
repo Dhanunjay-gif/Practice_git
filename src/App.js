@@ -15,6 +15,7 @@ import Shammer from "./components/Shammer.js";
 import { LoginContext } from "./components/UserContext.js"
 import { Provider } from "react-redux";
 import appStore from "./reduxStore/appStore.js"
+import Cart from "./components/Cart.js"
 
 const AppLayout= () =>{
   const [userName,setUserName] = useState("")
@@ -58,6 +59,10 @@ const AppRouter = createBrowserRouter([
       {
         path:"/restaurants/grocery",
         element: <Suspense fallback={<h1>Loading......</h1>}><Grocery/></Suspense>
+      }, 
+      {
+        path:"/restaurants/cart",
+        element:<Cart/>
       }
     ],
     errorElement:<Error/>,

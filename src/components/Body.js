@@ -48,7 +48,7 @@ const Body = () =>{
                    setlistOfRes(filterRes)
                 }}>Search</button>
                 <button type="button" id="filter-btn" className="bg-gray-300 text-black border-1 w-37 cursor-pointer hover:bg-gray-200" onClick={()=>{
-                    const filterdList=listOfRes.filter(res=>res.avgRating>=4);
+                    const filterdList=listOfRes.filter(res=>res.avgRating>=4.5);
                     setlistOfRes(filterdList);
                 }}>Top Restaurants</button>
                 <div>
