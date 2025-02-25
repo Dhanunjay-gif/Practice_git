@@ -3,12 +3,12 @@ export const LOGO_URL="https://png.pngtree.com/png-clipart/20220628/original/png
 
 // Restaurant URL - Body
 // Dupadu
-export const RESTAURANT_URL="https://www.swiggy.com/dapi/restaurants/list/v5?lat=15.7475282&lng=78.0009992&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+// export const RESTAURANT_URL="https://www.swiggy.com/dapi/restaurants/list/v5?lat=15.7475282&lng=78.0009992&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 // Hyd
 // export const RESTAURANT_URL="https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4423857&lng=78.355255&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
 
 // kurnool-city
-// export const RESTAURANT_URL="https://www.swiggy.com/dapi/restaurants/list/v5?lat=15.8082687&lng=78.03594799999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+export const RESTAURANT_URL="https://www.swiggy.com/dapi/restaurants/list/v5?lat=15.8082687&lng=78.03594799999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
 
 // Res Inf - RestaurantMenu
 export const RESINFO_URL="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/";

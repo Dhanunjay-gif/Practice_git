@@ -2,12 +2,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItems, removeItem } from "../reduxStore/cartSlice";
 import ItemList from "./ItemList";
 import { clearCart } from "../reduxStore/cartSlice";
+import {ItemListCloseButton} from "./ItemList"
 const Cart = () =>{
     const cartItems = useSelector(store=>store.cart1.items)
     const dispatch = useDispatch()
     const handleClearItems = () =>{
         dispatch(clearCart());
     }
+
+    const ItemWithClose = ItemListCloseButton(ItemList)
     return (
         <div>
             <div className="text-center p-4 m-4">
@@ -25,7 +28,10 @@ const Cart = () =>{
             }
 
             <div>
-                <ItemList items={cartItems}/>
+                <div>
+                    <button>Close</button>
+                </div>
+                <ItemWithClose items={cartItems}/>
             </div>
             <div>
                 {/* <h3>Total</h3> */}
@@ -33,5 +39,6 @@ const Cart = () =>{
         </div>
     )
 };
+
 
 export default Cart;
