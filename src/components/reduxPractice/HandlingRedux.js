@@ -9,7 +9,9 @@ const HandlingRedux = () => {
     return (
         <>
         <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-md flex flex-col items-center gap-4">
-            <h1 className="text-xl text-green-500 font-semibold">{data.mobile}</h1>
+            { data.mobile && 
+            <h1 className="text-xl text-black-500 font-semibold">Mobile: {data.mobile}</h1>
+            }
             
             <input 
                 className="w-full p-2 border rounded-md" 
