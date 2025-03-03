@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import HandlingRedux from "./HandlingRedux";
 const Account = () => {
     const data = useSelector((state) => state);
     return (
@@ -24,6 +25,7 @@ const Account = () => {
                     </table>
                 </div>
             </div>
+            <HandlingRedux/>
         </div>
     );
 };

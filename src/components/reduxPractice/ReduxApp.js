@@ -7,7 +7,6 @@ const ReduxApp = () =>{
         <div>
             <Form/>
             <Account/>
-            <h1>Hi Dhanu</h1>
         </div>
     )
 }
