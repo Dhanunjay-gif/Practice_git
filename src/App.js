@@ -16,6 +16,9 @@ import { LoginContext } from "./components/UserContext.js"
 import { Provider } from "react-redux";
 import appStore from "./reduxStore/appStore.js"
 import Cart from "./components/Cart.js"
+import DigitalClock from "./components/DigitalClock.js";
+import CountDown from "./components/CountDown.js";
+import AccountReducer from "./components/reduxPractice/ReduxPractice.js"
 
 const AppLayout= () =>{
   const [userName,setUserName] = useState("")
@@ -84,4 +87,4 @@ const AppRouter = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={AppRouter}/>);
 
-// root.render(<Shammer/>);
+// root.render(<AccountReducer/>);
