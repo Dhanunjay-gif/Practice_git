@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useDispatch} from "react-redux";
+import { depositeAmount,withdraw,fName ,mobileNum} from "./Action";
 
 const Form = () => {
     const [amount, setAmount] = useState("");
     const [fullName, setFullName] = useState("");
     const [mobile, setMobile] = useState("");
     const dispatch = useDispatch();
+    const [transId,setTransId] = useState(0);
 
     return (
         <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md mt-10">
@@ -21,11 +23,27 @@ const Form = () => {
                 />
                 <div className="mt-2 flex gap-2">
                     <button className="bg-blue-500 text-white px-4 py-2 rounded-md" 
-                        onClick={() => { dispatch({ type: "deposit", payload: amount }); setAmount("") }}>
+                        onClick={() => { dispatch(depositeAmount(amount)); 
+                            setTransId(transId+1);
+                            dispatch({type:"ADD_Trans",payload:{
+                                id:transId,
+                                amount:amount,
+                                date:new Date(), 
+                                type:"Credit"
+                            }});
+                        setAmount("") }}>
                         Deposit
                     </button>
                     <button className="bg-red-500 text-white px-4 py-2 rounded-md" 
-                        onClick={() => { dispatch({ type: "withdraw", payload: amount }); setAmount("") }}>
+                        onClick={() => { dispatch(withdraw(amount)); 
+                            setTransId(transId+1);
+                            dispatch({type:"ADD_Trans",payload:{
+                                id:transId,
+                                amount:amount,
+                                date:new Date(),
+                                type:"Debit"
+                            }});
+                        setAmount("") }}>
                         Withdraw
                     </button>
                 </div>
@@ -40,7 +58,7 @@ const Form = () => {
                     onChange={(e) => setFullName(e.target.value)}
                 />
                 <button className="bg-green-500 text-white px-4 py-2 rounded-md" 
-                    onClick={() => { dispatch({ type: "fullName", payload: fullName }); setFullName("") }}>
+                    onClick={() => { dispatch(fName(fullName)); setFullName("") }}>
                     Update
                 </button>
             </div>
@@ -54,7 +72,7 @@ const Form = () => {
                     onChange={(e) => setMobile(e.target.value)}
                 />
                 <button className="bg-green-500 text-white px-4 py-2 rounded-md" 
-                    onClick={() => { dispatch({ type: "mobile", payload: mobile }); setMobile("") }}>
+                    onClick={() => { dispatch(mobileNum(mobile)); setMobile("") }}>
                     Update
                 </button>
             </div>

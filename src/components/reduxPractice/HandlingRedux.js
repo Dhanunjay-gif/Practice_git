@@ -1,3 +1,4 @@
+// Extra.....................................................
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -10,7 +11,7 @@ const HandlingRedux = () => {
         <>
         <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-md flex flex-col items-center gap-4">
             { data.mobile && 
-            <h1 className="text-xl text-black-500 font-semibold">Mobile: {data.mobile}</h1>
+            <h1 className="text-xl text-black-500 font-semibold">Mobile: {data.action.mobile}</h1>
             }
             
             <input 
