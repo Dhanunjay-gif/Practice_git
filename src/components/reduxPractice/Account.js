@@ -39,18 +39,18 @@ const Account = () => {
                 </div>
 
                 {/* Transaction Details Section */}
-                <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-md">
+                <div className="w-full max-w-md p-6 rounded-lg">
                     <h1 className="text-2xl font-bold text-blue-500 mb-4 text-center">
                         Transaction Details
                     </h1>
-                    <div className="overflow-x-auto">
-                        <table className="w-full border-collapse border border-gray-300">
+                    <div>
+                        <table className="w-full">
                             <thead>
-                                <tr className="bg-blue-500 text-white">
-                                    <th className="border border-gray-300 px-4 py-2 text-left">Id</th>
+                                <tr className=" text-black">
+                                    <th className="border border-gray-300 px-4 py-2 ">Id</th>
                                     <th className="border border-gray-300 px-4 py-2 text-left">Amount</th>
                                     <th className="border border-gray-300 px-4 py-2 text-left">Type</th>
-                                    <th className="border border-gray-300 px-4 py-2 text-left">Date</th>
+                                    <th className="border border-gray-300 px-1 py-2 truncate">Date</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,7 +61,7 @@ const Account = () => {
                                                 <td className="border border-gray-300 px-4 py-2">{trans.id}</td>
                                                 <td className="border border-gray-300 px-4 py-2">{trans.amount}</td>
                                                 <td className="border border-gray-300 px-4 py-2">{trans.type}</td>
-                                                <td className="border border-gray-300 px-4 py-2 truncate">{trans.date.toString()}</td>
+                                                <td className="border border-gray-300 px-1 py-2 truncate">{trans.date.toString()}</td>
                                             </tr>
                                         );
                                     })}
