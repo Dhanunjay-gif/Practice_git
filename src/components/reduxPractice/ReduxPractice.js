@@ -6,6 +6,11 @@ const initialState = {
   mobile: null,
 };
 
+const todoInitialState={
+  todos:[{id:1,title:"goto movie"}],  //{id:2,title:title}
+  nextId:1
+}
+
 function AccountReducer(state = initialState, action) {
   switch (action.type) {
     case "deposit": 
@@ -33,12 +38,27 @@ function TranscationReducer(state=[],action){
     default:
       return state
   }
+};
+
+const TodosReducer = (state=todoInitialState,action) =>{
+  switch(action.type){
+    case "ADD_TODO":
+      const newTodo = {id:state.todos.nextId,title:action.payload.title}
+      return {...state,todos:[...state.todos,newTodo],nextId:state.nextId+1}
+    case "EDIT_TODO":
+      return {...state,todos:state.todos.map(todo=>todo.id==action.payload.id ? {...todo,title:action.payload.title} : todo)}
+    case "DELETE_TODO":
+      return {...state,todos:state.todos.filter((todo)=>todo.id!==action.payload.id)}
+    default:
+      return state
+  }
 }
 
 const rootReducer = combineReducers(
   {
     account:AccountReducer,
-    transaction:TranscationReducer
+    transaction:TranscationReducer ,
+    todosReducer:TodosReducer
   }
 )
 
