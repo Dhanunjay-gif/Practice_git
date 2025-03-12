@@ -1,0 +1,38 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "This is React by Dhanu ",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dhanunjay-gif/Practice_git.git"
+  },
+  "keywords": [],
+  "author": "Dhanunjay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dhanunjay-gif/Practice_git/issues"
+  },
+  "homepage": "https://github.com/Dhanunjay-gif/Practice_git#readme",
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "process": "^0.11.10",
+    "react-router-dom": "^7.1.5"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.5.1",
+    "@tailwindcss/postcss": "^4.0.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1",
+    "tailwindcss": "^4.0.6"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
