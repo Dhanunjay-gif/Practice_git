@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const todoInitialState={
-  todos:[{id:1,title:"goto movie"}],  //{id:2,title:title}
+  todos:[{id:1,title:"goto movie"}],
   nextId:1
 }
 
